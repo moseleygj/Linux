@@ -1,0 +1,5 @@
+//create a windows-like file system that that saves current files
+//log all added software
+//log all applications added to the sytem in and HTML-like format availible for the system for  when  it  boots
+//have an isolated partition used for housing the original  OS FS
+//Option to copy files back to FS
