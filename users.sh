@@ -7,7 +7,11 @@
 #Enter a username 
 clear
 
+if [[ $UID != 0 ]]; then
+    echo "You don't have sufficient privileges to run this script."
+    exit 1
 
+fi
 echo "Enter a new user name, followed by [ENTER]:";
 read name
 #check if empty
@@ -18,32 +22,44 @@ user_length=$(echo -n $name | wc -c);
 elif [ "$user_length" -lt 6 ];then
 	echo "username: $name ,is too short. Try 6-32 charcters."
 	#check for invalid length
-
 elif [ "$user_length" -gt 32 ];then
 	echo "username: $name , is too long."
 	#check for invalid characters
 elif [[ $name == *['!'@#\$%^\&*()_+]* ]]
 then
   echo "Your username contains invalid charcaters."
-
-
   else
-  echo "username  \"$name\" is valid.";
+clear
+  echo "username  \"$name\" :	VALID";
   fi
-
-
  #check if username exist already
  # $(awk -F':' '{ print $1}' );
  
 user_exists=$(id -u "$name" > /dev/null 2>&1; echo $?); 
  if [ $user_exists -eq "0" ]; then
- echo "username  \"$name\" : NOT AVAILIBLE.";
+ echo "username  \"$name\" :	NOT AVAILIBLE.";
+ exit 0;
  else
- echo "username  \"$name\" :  AVAILIBLE.";
+ echo  -e "username  \"$name\" :	\e[38;5;1AVAILIBLE.";
  fi
- exit 0
+ #exit 0
  #create user
- 
- #group
- 
-#rights 
+ #ask if user wants to use a custom directory
+read -r -p "Do you want to create a custom user directory? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]];then
+echo "Directory name: ";
+read dir_name
+ 	if [ -d "$dir_name" ];then 
+ 	echo "$dir_name	.......	already exist!";
+ 	else
+ 		echo "$dir_name doesn't exist. Creating Directory....";
+ 	fi
+
+#check if directory name is good, or currently exist
+else 
+    echo "default directory will be used:	.......	/home/$name"
+fi
+
+ #custom GID
+ #custom UID
+#rights  
