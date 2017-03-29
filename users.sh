@@ -37,10 +37,10 @@ clear
  
 user_exists=$(id -u "$name" > /dev/null 2>&1; echo $?); 
  if [ $user_exists -eq "0" ]; then
- echo "username  \"$name\" :	NOT AVAILIBLE.";
+ echo -e "username  \"$name\" :	NOT AVAILIBLE.";
  exit 0;
  else
- echo  -e "username  \"$name\" :	\e[38;5;1AVAILIBLE.";
+ echo -e "username  \"$name\" :	AVAILIBLE.";
  fi
  #exit 0
  #create user
@@ -52,14 +52,25 @@ read dir_name
  	if [ -d "$dir_name" ];then 
  	echo "$dir_name	.......	already exist!";
  	else
- 		echo "$dir_name doesn't exist. Creating Directory....";
+ 		echo "$dir_name Doesn't exist. Creating Directory ..... $dir_name$name";
  	fi
-
 #check if directory name is good, or currently exist
 else 
     echo "default directory will be used:	.......	/home/$name"
 fi
 
- #custom GID
- #custom UID
-#rights  
+echo "Create a custom User ID (UID) [Y/N]:"
+read uid_ans
+
+#use case statment here
+if [ "uid_ans"="y" ] || [ "uid_ans"="Y" ]; then
+	echo "answer is yes";
+	echo "Enter UID: ";
+	read uid
+
+else
+	echo "Using the default UID....";
+fi
+#custom UID
+#custom GID
+#rights 
