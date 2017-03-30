@@ -1,4 +1,5 @@
 
+
 #!/usr/bin/bash
 #Name:		Linux Automation project
 #purpose:	Add User Account
@@ -52,25 +53,24 @@ read dir_name
  	if [ -d "$dir_name" ];then 
  	echo "$dir_name	.......	already exist!";
  	else
- 		echo "$dir_name Doesn't exist. Creating Directory ..... $dir_name$name";
+ 		echo "Directory non-existant... Creating Directory ... $dir_name$name";
  	fi
 #check if directory name is good, or currently exist
 else 
-    echo "default directory will be used:	.......	/home/$name"
+    echo "Default directory will be used:	.......	/home/$name"
 fi
 
-echo "Create a custom User ID (UID) [Y/N]:"
-read uid_ans
 
-#use case statment here
-if [ "uid_ans"="y" ] || [ "uid_ans"="Y" ]; then
-	echo "answer is yes";
-	echo "Enter UID: ";
-	read uid
 
-else
-	echo "Using the default UID....";
-fi
+
 #custom UID
 #custom GID
 #rights 
+while true; do
+    read -p "Create a custom User ID (UID) [y/n]:" yn
+    case $yn in
+        [Yy]* ) echo "Enter UID: ";read uid;break;;
+        [Nn]* ) echo "Using the default UID...";;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
