@@ -11,17 +11,23 @@ if [[ $UID != 0 ]]; then
 fi
 
 #check if user has the desired program "pv" to complete the program.
+#note: you can use "status=progress" to  the end of your dd command
 type pv >/dev/null 2>&1 || {
- echo >&2 "I require foo but it's not installed.  Aborting."; }
+ echo >&2 "I require \"pv\" but it's not installed. Please install pv to continue. ";exit 1; }
 
 #Get size of files
 
-echo "Here are a list of avalible  images in your current directory:"
-du -b $filename *.sh
+echo "Here are a list of avalible images in your current directory:"
+echo "Enter the name of the image you want to use:";
+du -b $filename *.iso
+read isoimg
+echo " ";
 
-
-
+#show availible disk on the system:
+#lsblk will also work
+echo "Avilible disk on the system: "
+sudo fdisk -l| grep 'Disk /dev/s' | sed s/Disk/Drive/
+ 
 #syntax for pv is as followed: 
 # input | pv | output
 # dd if=/dev/urandom | pv | dd of=/dev/null
-
