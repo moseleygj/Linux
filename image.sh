@@ -26,7 +26,7 @@ echo " ";
 #show availible disk on the system:
 #lsblk will also work
 echo "Avilible disk on the system: "
-sudo fdisk -l| grep 'Disk /dev/s' | sed s/Disk/Drive/
+sudo fdisk -l| grep 'Disk /dev/s' | sed s/Disk/Drive/ | cut -d ' ' -f1,3,4|sed s/,//
  
 #syntax for pv is as followed: 
 # input | pv | output
