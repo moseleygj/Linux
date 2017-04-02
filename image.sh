@@ -26,8 +26,13 @@ echo " ";
 #show availible disk on the system:
 #lsblk will also work
 echo "Avilible disk on the system: "
-sudo fdisk -l| grep 'Disk /dev/s' | sed s/Disk/Drive/ | cut -d ' ' -f1,3,4|sed s/,//
- 
+
+IFS=$'\n'       # make newlines the only separator
+for j in $(sudo fdisk -l| grep 'Disk /dev/s' | sed s/Disk// | cut -d ' ' -f1-4|sed s/,//)    
+do
+    c=$(($c+1));
+    echo "Drive $c: $j";
+done 
 #syntax for pv is as followed: 
 # input | pv | output
 # dd if=/dev/urandom | pv | dd of=/dev/null
