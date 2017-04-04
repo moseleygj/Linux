@@ -15,27 +15,26 @@ echo "$counter : $i";
    echo "";
 
 while true; do
-    read -p "Enter a drive number to write to:" drive_num
-    echo $drive_num
+    read -p "Enter a HDD number to write to: " drive_num
     case $drive_num in
-        [2]* ) echo "You will be using drive 2: ${array[1]} GB";break;;
-        [3]* ) echo "You will be using drive 3: ${array[2]} GB";break;;
-        [4]* ) echo "You will be using drive 4: ${array[3]} GB";break;;
-        [5]* ) echo "You will be using drive 5: ${array[4]} GB";break;;
-        [6]* ) echo "You will be using drive 6: ${array[5]} GB";break;;
-        [7]* ) echo "You will be using drive 7: ${array[6]} GB";break;;
-        [8]* ) echo "You will be using drive 8: ${array[7]} GB";break;;
-        [9]* ) echo "You will be using drive 9: ${array[8]} GB";break;;      
-        * ) echo "Enter a drive # other than drive 1: ${array[0]}";;
-    esac
+        [2]* ) echo "You will be using HDD 2: ${array[1]} GB";break;;
+        [3]* ) echo "You will be using HDD 3: ${array[2]} GB";break;;
+        [4]* ) echo "You will be using HDD 4: ${array[3]} GB";break;;
+        [5]* ) echo "You will be using HDD 5: ${array[4]} GB";break;;
+        [6]* ) echo "You will be using HDD 6: ${array[5]} GB";break;;
+        [7]* ) echo "You will be using HDD 7: ${array[6]} GB";break;;
+        [8]* ) echo "You will be using HDD 8: ${array[7]} GB";break;;
+        [9]* ) echo "You will be using HDD 9: ${array[8]} GB";break;;      
+        * ) echo "Enter a HDD # other than HDD 1: ${array[0]}";;
+     esac
 done
 ((drive_num--))
 echo "HDD:  ${array[ $drive_num ]}";
 
 if [[ -z  ${array[$drive_num]} ]];then
-	echo "Empty...¯\_(ツ)_/¯.bye!";exit 0;
+	echo "Empty/Invalid...¯\_(ツ)_/¯...bye!";exit 0;
 else
-	echo "(•‿•) Good drive selection!";
+	echo "(•‿•) Good HDD selection!";
 fi
 
 
