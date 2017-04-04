@@ -18,21 +18,14 @@ type pv >/dev/null 2>&1 || {
 #Get size of files
 
 echo "Here are a list of avalible images in your current directory:"
-echo "Enter the name of the image you want to use:";
 du -b $filename *.iso
-read isoimg
 echo " ";
 
 #show availible disk on the system:
-#lsblk will also work
 echo "Avilible disk on the system: "
+sudo fdisk -l| grep 'Disk /dev/s'
 
-IFS=$'\n'       # make newlines the only separator
-for j in $(sudo fdisk -l| grep 'Disk /dev/s' | sed s/Disk// | cut -d ' ' -f1-4|sed s/,//)    
-do
-    c=$(($c+1));
-    echo "Drive $c: $j";
-done 
 #syntax for pv is as followed: 
 # input | pv | output
 # dd if=/dev/urandom | pv | dd of=/dev/null
+
