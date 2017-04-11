@@ -105,4 +105,4 @@ while true; do
 done
 
 #create password
- 
+#sudo passwd $name 
