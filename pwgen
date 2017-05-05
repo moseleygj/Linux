@@ -1,1 +1,37 @@
 Create a powerfull password generator to test integrity or user created passwords
+
+#generator needs to take in user input as an option(such as user data that hints at characteristic of the defined user).
+#Example: Thing is an Alien named ET("ET, Extra, Terrestrial, green, mars, ufo, mars,mars)  should be able to be used as input
+##Use Camel-case,understores and hyphen as possible word seporators
+##use two uppcase character preferibly the first two chacracters or the characters of the beginning of each word.
+##add the numbers 000- 999, 0000-9999 to each password.
+##backwards/uppercase/lowercase/alternatingcase
+#countries
+#sports Teams
+#movies
+#dictionary
+#foreing languages
+#foreing dictionary
+#famous people
+#bands/artist
+#countries,counties,cities,
+#food/candy
+#animals
+#physics
+#authors/books
+#serialKillers/movie killers/holloween characters
+#cartoons
+#military/wars/slang/ranks/history
+#presidents
+#computer companies
+#popular name
+#default passwords
+#clothing companies
+#artist
+#painting names
+#p-stars
+#viedo games
+#cars
+#anatomy
+#celebrities
+#jargon for professional feilds
