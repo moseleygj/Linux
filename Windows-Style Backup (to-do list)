@@ -3,3 +3,34 @@
 //log all applications added to the sytem in and HTML-like format availible for the system for  when  it  boots
 //have an isolated partition used for housing the original  OS FS
 //Option to copy files back to FS
+
+
+
+//prompt do you have s location for this backup to be stored that isnt the local drive?
+//no-create one/ use external source
+//check if the size of the drive is large enough for the backup
+
+//list  all installed applications: 
+RPM-based: rpm -qa | sort >Application.log
+debian:dpkg -l | sort >Application.log
+
+>applicationlog.txt>[html tamplet here]
+
+"<html>
+<head><title>System Application Log</title></head>
+<body>
+<center><h2><u>Application Log</u></h2></center>
+<br>
+$variableHoldingApplicationLogContent
+</body>
+</html>"
+
+//<alternatively use php>
+
+//restore
+debian-based:# dpkg --set-selections < Application.log; apt-get dselect-upgrade
+RPM-based: LIST="$( cat Application.log )";  for s in $LIST; do yum -y install $s; done '
+            or try: yum -y install $(cat Application.log)
+            
+OLDER RHEL 4.Cent4: for s in $LIST; do up2date -i $s; done;
+                or:up2date -i $(cat /backup/installed-software.log) 
