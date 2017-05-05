@@ -1,10 +1,11 @@
-Create a powerfull password generator to test integrity or user created passwords
-
-#generator needs to take in user input as an option(such as user data that hints at characteristic of the defined user).
+Guidelines:
+#pw Generator needs to take in user input as an option(such as user data that hints at characteristic of the defined user).
 #Example: Thing is an Alien named ET("ET, Extra, Terrestrial, green, mars, ufo, mars,mars)  should be able to be used as input
 ##Use Camel-case,understores and hyphen as possible word seporators
 ##use two uppcase character preferibly the first two chacracters or the characters of the beginning of each word.
 ##add the numbers 000- 999, 0000-9999 to each password.
+#append -abc,-abcd,-ABC,-ABCD, !
+#replace s with $
 ##backwards/uppercase/lowercase/alternatingcase
 #countries
 #sports Teams
@@ -24,7 +25,8 @@ Create a powerfull password generator to test integrity or user created password
 #military/wars/slang/ranks/history
 #presidents
 #computer companies
-#popular name
+#popular names/nice names/trending
+#toys
 #default passwords
 #clothing companies
 #artist
