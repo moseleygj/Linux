@@ -12,5 +12,8 @@
 #Starts from the end of :  "© 2017 The Weather Company, LLC"
 #                   To(ends with):  " * Radar"
 
+#more raw verion
 clear;
 lynx https://weather.com/weather/today/l/USNY0996:1:US -dump -nolist|sed -n '/ LLC/,/Radar/p'|sed 's/© 2017 The Weather Company, LLC//'| sed 's/* Radar//'|sed -e '1,4d;9d;17d;18d'
+
+#clean version[pending]
