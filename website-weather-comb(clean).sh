@@ -1,7 +1,7 @@
 #Gordon Moseley
 #Weather Comb
 #May 2017
-#You must download "lynx" to use this script.
+#You must download lynx to use this script.
 #
 #Sometimes the "11212:4:US"  portion will differ visit weather.com and adjust accordingly.
 #
@@ -14,12 +14,12 @@
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #   GNU General Public License for more details.
-#!/bin/bash
+
 clear;
 echo "Fetching data, please wait . . ."
 sleep 3;
 clear
-location="11212:4:US ";
+location="11212:4:US "; #Change me for more accuracy.
 
 area=$(lynx https://weather.com/weather/today/l/${location}-dump -nolist|
  sed -n '/ LLC/,/Radar/p'|sed 's/© 2017 The Weather Company, LLC//'|
@@ -31,6 +31,35 @@ feelsLike=$(lynx https://weather.com/weather/today/l/${location}-dump -nolist| s
 humidity=$(lynx https://weather.com/weather/today/l/${location}-dump -nolist| sed -n '/ LLC/,/Radar/p'|sed 's/© 2017 The Weather Company, LLC//'| sed 's/* Radar//'|sed -e '1,4d;13d;9d;17d;18d'|sed 's/\^°/°F/g'|sed 's/Humidity  //'|sed -n 11p|sed -e 's/^[ \t]*//');
 UV=$(lynx https://weather.com/weather/today/l/${location}-dump -nolist| sed -n '/ LLC/,/Radar/p'|sed 's/© 2017 The Weather Company, LLC//'| sed 's/* Radar//'|sed -e '1,4d;13d;9d;17d;18d'|sed 's/\^°/°F/g'|sed 's/UV Index //'|sed -n 7p|sed -e 's/^[ \t]*//');
 updated=$(lynx https://weather.com/weather/today/l/${location}-dump -nolist| sed -n '/ LLC/,/Radar/p'|sed 's/© 2017 The Weather Company, LLC//'| sed 's/* Radar//'|sed -e '1,4d;13d;9d;17d;18d'|sed 's/\^°/°F/g'|sed 's/as of//'|sed -n 3p|sed -e 's/^[ \t]*//');
+temp=$(lynx https://weather.com/weather/today/l/${location}-dump -nolist| sed -n '/ LLC/,/Radar/p'|sed 's/© 2017 The Weather Company, LLC//'| sed 's/* Radar//'|sed -e '1,4d;13d;9d;17d;18d'|sed 's/\^°/°F/g'|sed 's/as of//'|sed -e's/°F//'|sed -n 4p|sed -e 's/^[ \t]*//');
+
+if (($temp<=40))
+then
+    msg="Very Cold"
+    wear="Coat, Gloves, Pants, Leggings / Long-Johns, Scarf, Hat"
+elif (($temp>40 && $temp<=50))
+then
+    msg="Cold"
+    wear="Jacket, Long-sleeved Shirt, Pants."
+elif (($temp>50 && $temp<=60))
+then
+    msg="Cool"
+    wear="Sweater / Light-Jacket / Long-sleeves, Jeans / Skirt"
+elif (($temp>60 && temp<=70))
+	then
+	msg="Warm"
+	wear="Long-Sleeved shirt / Light-sweater, pants / slacks"
+elif (($temp>70 && temp<=80))
+		then
+	msg="Hot"
+	wear="Thin Clothing, T-Shirt, Pants, Shorts, Pants"
+elif (($temp>80 && temp<=120))
+	then
+	msg="Extermely Hot!!!"
+	wear="T-shirt and shorts"
+else
+    echo "I'm confused..."
+fi
 
 echo "Current Weather Statistics";
 echo "";
@@ -41,5 +70,9 @@ echo "	Feels like . . . . . . . . . . . : $feelsLike";
 echo "	Humidity . . . . . . . . . . . . : $humidity";
 echo "	UV Index . . . . . . . . . . . . : $UV";
 echo "	Updated. . . . . . . . . . . . . : $updated";
-
 echo "";
+echo "Rating and Reccomendations";
+echo "";
+echo "	Rating . . . . . . . . . . . . . : $msg";
+echo "	Clothing: $wear";
+echo ""
