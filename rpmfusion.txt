@@ -1,0 +1,17 @@
+Command Line Setup using rpm
+
+To enable access to both the free and the nonfree repository use the following command:
+
+    Fedora 22 and later:
+
+    sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+    RHEL 6 or compatible like CentOS:
+
+    sudo yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-6.noarch.rpm https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-6.noarch.rpm
+
+    RHEL 7 or compatible like CentOS:
+
+    sudo yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm
+
+Note : If sudo is not properly set on your installation, you can replace 'sudo' with 'su -c' in the commands above. 
