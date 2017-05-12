@@ -58,7 +58,7 @@ elif (($temp>80 && temp<=120))
 	msg="Extermely Hot!!!"
 	wear="T-shirt and shorts"
 else
-    echo "I'm confused..."
+    echo "I'm confused... Server is too slow right now"
 fi
 
 echo "Current Weather Statistics";
