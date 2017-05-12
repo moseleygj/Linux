@@ -1,0 +1,1 @@
+Package ibus-1.5.14-5.fc25.x86_64 is already installed, skipping.
