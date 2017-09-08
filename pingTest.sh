@@ -1,10 +1,15 @@
-#/bin/bash
+#!/bin/bash
+#Check status of a node
+#Gordon Moseley
+#9/2017
+
 clear
 
 echo "IP address: "
 read IP
 NO="Host [$IP] . . . . . .  OFFLINE!";
 YES="Host [$IP] . . . . . . ACTIVE!";
+duration=10;
 if [ "$IP" == "" ]; then
 echo "Error - Invalid Input!"
 exit 0
@@ -19,7 +24,7 @@ clear
 	echo ""
 	echo ""
   	zenity --info --text="$YES" 2> /dev/null
-sleep 10
+sleep $duration
 doWork
 
 else
@@ -29,7 +34,7 @@ clear
   echo ""
   echo ""
   zenity --warning --text="$NO" 2> /dev/null
-  sleep 10
+  sleep $duration
   doWork
 fi
 }
