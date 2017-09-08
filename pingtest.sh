@@ -3,8 +3,8 @@ clear
 
 echo "IP address: "
 read IP
-no="Host [$IP] . . . . . .  OFFLINE!";
-yes="Host [$IP] . . . . . . Active!";
+NO="Host [$IP] . . . . . .  OFFLINE!";
+YES="Host [$IP] . . . . . . ACTIVE!";
 if [ "$IP" == "" ]; then
 echo "Error - Invalid Input!"
 exit 0
@@ -18,16 +18,17 @@ clear
 	echo "Host [$IP] . . . . . . . . . . . . . . . . Active!"
 	echo ""
 	echo ""
-  	zenity --info --text="$yes" 2> /dev/null
+  	zenity --info --text="$YES" 2> /dev/null
 sleep 10
 doWork
 
 else
+
 clear
   echo "Host [$IP] . . . . . . . . . . . . . . . . No route to host" #0 reachable.2 unreachable
   echo ""
   echo ""
-  zenity --warning --text="$no" 2> /dev/null
+  zenity --warning --text="$NO" 2> /dev/null
   sleep 10
   doWork
 fi
