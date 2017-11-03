@@ -1,1 +1,4 @@
-This folder contains Linux related things, mainly shell scripts, backup-scripts, etc
+# Linux
+## This folder contains Linux related things, mainly shell scripts, backup-scripts, etc.
+![tux-image](tux.png)
+
