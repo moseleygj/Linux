@@ -14,7 +14,8 @@ fi
 mkdir $HOME_FOLDER
 
 #compress files
-tar cvf theSafe.tar $HOME_FOLDER
+#COPY files into $HOME_FOLDER first
+tar -czvf theSafe.tar.gz $HOME_FOLDER
 
 #ENCRYPT THE COMPRESSED FILE
 gpg --yes --batch --passphrase=$PASSPHRASE -c $BACKUP
