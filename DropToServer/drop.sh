@@ -3,9 +3,10 @@ REF_FILE="refHost.txt"
 
 send_data()
 {
-	HOST_REMOTE=$(cat $REF_FILE|sed -n '1p')
-	USER_NAME=$(cat $REF_FILE|sed -n '2p')
-	REMOTE_DIR=$(cat $REF_FILE|sed -n '3p')
+HOST_REMOTE=$(cat $REF_FILE|sed -n '1p')
+USER_NAME=$(cat $REF_FILE|sed -n '2p')
+REMOTE_DIR=$(cat $REF_FILE|sed -n '3p')
+
 	echo "Checking $HOST_REMOTE's Connection..."
 	ping -c 3 $HOST_REMOTE &>/dev/null
 
@@ -22,8 +23,7 @@ send_data()
 				else 
 					echo "Connection to $HOST_REMOTE REFUSED!"
 					exit
-		fi
-
+				fi
 
 		elif [ "$?" -eq 0 ];then
 			echo "$HOST_REMOTE is OFFLINE"
@@ -43,7 +43,7 @@ create_file()
 	echo "Enter user name:"
 	read USER_NAME
 	echo $USER_NAME >> $REF_FILE
-	echo "relative path of remote directory:"
+	echo "Enter the ABSOLUTE path of remote directory:"
 	read REMOTE_DIR
 }
 
