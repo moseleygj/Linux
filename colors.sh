@@ -1,4 +1,4 @@
-bold="\e[1m"
-end="\e[21m"
-c1="\e[0m"
+bold=""
+end=""
+c1=""
 echo -e "[$bold name$end@$c1 host $end dir]"
