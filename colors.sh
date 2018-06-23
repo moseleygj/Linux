@@ -1,4 +1,5 @@
-bold=""
+red="\033[0m"
+restore="\033[0m"
 end=""
 c1=""
-echo -e "[$bold name$end@$c1 host $end dir]"
+echo -en "[ ${red} name$end@$c1 host $end dir]"
