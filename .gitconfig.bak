@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = moselegj
+#	email = moseleygj@gmail.com
+[user]
+	name = moseleygj
+	email = moseleygj@gmail.com
+[credential]
+[credential]
+	helper = cache --timeout=\"3024000
