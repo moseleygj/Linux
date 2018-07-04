@@ -6,10 +6,12 @@ REPOS=(WebPages.git WebPages.git java-programming.git UI.git PHP.git DB.git)
 #check if directory exist
 if [ -d GH ]; then
 echo "Directory GH already exist."
+exit 1
 else
 echo "creating directory GH..."
 mkdir GH
 cd GH
+fi
 
 if [ -e /usr/bin/dnf ]; then
 echo "DNF package-manager is present. Begining download...";
