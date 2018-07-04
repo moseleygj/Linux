@@ -2,7 +2,7 @@
 USERNAME="moseleygj"
 EMAIL="moseleygj@gmail.com"
 REPOS=(WebPages.git WebPages.git java-programming.git UI.git PHP.git DB.git)
-
+clear
 #check if directory exist
 if [ -d GH ]; then
 echo "Directory GH already exist."
