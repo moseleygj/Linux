@@ -15,13 +15,13 @@ fi
 
 if [ -e /usr/bin/dnf ]; then
 echo "DNF package-manager is present. Begining download...";
-sudo dnf install git
+sudo dnf install -y git
 elif [ -e /usr/bin/yum ]; then
 echo "YUM package-manager is present. Begining download...";
-sudo yum install git
+sudo yum install -y  git
 elif [ -e /usr/bin/apt ]; then
 echo "APT package-manager is present. Begining download...";
-sudo apt-get install git
+sudo apt-get install -y git
 else
 echo "Error No package manager found."
 fi
