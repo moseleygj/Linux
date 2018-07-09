@@ -2,7 +2,7 @@
 
 HOME_FOLDER=TheSafe;
 BACKUP=TheSafe.tar.gz;
-PASSPHRASE=password;
+PASSPHRASE=password; #you might want to change this...
 
 #lock screen
 xdg-screensaver lock
@@ -13,8 +13,9 @@ fi
 
 mkdir $HOME_FOLDER
 
-#compress files
-#COPY files into $HOME_FOLDER first
+#COMPRESS FILES
+##COPY files into $HOME_FOLDER first
+##!!REMEMBER: to copy files into $HOME_FOLDER on this line!!!
 tar -czvf theSafe.tar.gz $HOME_FOLDER
 
 #ENCRYPT THE COMPRESSED FILE
@@ -47,3 +48,5 @@ history -c
 touch sd.sh
 echo "rm shred.sh" > sd.sh;
 sh sd.sh
+#clear your history again
+history -c
