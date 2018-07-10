@@ -1,7 +1,6 @@
 #!/bin/bash
 #remember to comment remove the comment from the /etc/gdm/custom.conf file labeled "WaylandEnable=false"
 
-
 #find out what display to apply it to
 xrandr |cut -d " " -f 1-2|grep -w "connected"
 
