@@ -62,4 +62,4 @@ localNetwork=$(echo ${ipArr[$MyLocAddr]} | cut -d "." -f1-3)
 localNetwork+=".0/24"
 
 #RUN NMAP SCAN AND DISPLAY CLEAN RESULTS
-sudo nmap -sn $localNetwork | grep -v "Host is up"|sed "s/Nmap scan report for //"|grep -v "Staring Nmap"|grep -v "Nmap done"|grep -v "Starting Nmap"|sed "s/MAC Address:/MAC:/g"|grep -v `hostname`
+sudo nmap -sn $localNetwork | grep -v "Host is up" | sed "s/Nmap scan report for //"|grep -v "Staring Nmap" | grep -v "Nmap done" | grep -v "Starting Nmap" | sed "s/MAC Address:/MAC:/g" | grep -v `hostname`
