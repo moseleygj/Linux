@@ -1,3 +1,3 @@
 #Resolution changer
-##resolution automation utilizing xrandr and gtf
+##Resolution automation utilizing xrandr and gtf
 
