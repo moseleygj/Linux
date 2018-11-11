@@ -1,0 +1,9 @@
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda               8:0    0 298.1G  0 disk /home/ieatpcs/Downloads
+sdb               8:16   0 232.9G  0 disk 
+├─sdb1            8:17   0   500M  0 part /boot
+└─sdb2            8:18   0 232.4G  0 part 
+  ├─fedora-root 253:0    0    60G  0 lvm  /
+  ├─fedora-swap 253:1    0   5.8G  0 lvm  [SWAP]
+  └─fedora-home 253:2    0 166.6G  0 lvm  /home
+mmcblk0         179:0    0   7.4G  0 disk /run/media/ieatpcs/AF59-F1FA

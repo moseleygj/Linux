@@ -9,12 +9,10 @@ if [[ $key = "" ]]; then
     echo 'You pressed enter!'
     #continue writing code
     #check if root
-    sudo lsblk >> old_state.txt
+    sudo lsblk > old_state.txt
     echo 'please plug in your USB device'
-    sleep 8
-    sudo lsblk >> new_state.txt
-    echo "New device is at: "$(diff old_state.txt new_state.txt)
-
+    sleep 15
+    sh chain.sh
 else
     echo "You pressed '$key'"
 fi
