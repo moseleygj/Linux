@@ -14,6 +14,7 @@ tRNIoSVsQF4lnOC9P7DPk5bRcI6UONsR8IveMuvV3UicXeKyCX2VukDAIPiDP5mRWRqeaYBniFxKIxKE
 "
 #GENERATE  FILE THAT DOESNT EXIST
 cell=".cell"
+
 if [ ! -f $cell ]; then
 echo "file $cell doesnt exist.";
 echo "creating file... $cell";
@@ -25,9 +26,11 @@ echo "file  $cell found.";
 fi
 
 #RUN A LOOP WITH CONDITIONS THAT CANT BE MEET
+
 counter=0;
 target=0;
-target_max=0; #0 will go until HDD is full, 1024=1GB,500gb=512,000, 1TB= 1048,576MB
+target_max=0; #0 will go until HDD is full, 1024=1GB,512=500gb, 1048,576MB=1TB
+
 while [ $target -eq $target_max ]; do
 let counter+=1
 #let target_max+=1  #uncomment this if you change $target_max to anything but 0
