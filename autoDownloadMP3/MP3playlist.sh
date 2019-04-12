@@ -1,9 +1,15 @@
 #!/usr/bin/bash
-
-yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file honeyPot.txt"
+rnb="rnb.txt"
+links=$rnb
+yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file $rnb"
 n=""
 div="============================================================"
-links="honeyPot.txt"
+
+echo $rnb
+
+#rnb.txt
+#rapANDrnb.txt
+#rap.txt
 touch $links
 clear
 count=0;
@@ -12,7 +18,8 @@ end="\e[0m"
 
 if [ -s $links ]
 then
-    echo " ✔ File is loaded. "
+    echo "✔ Loaded: \"$links\". "
+    echo " "
 else
     echo "😞 Oops..." #error
     echo $div
@@ -32,9 +39,9 @@ else
 fi
 
 for i in $(cat $links)
-do
-    echo $i
-    ((count++));
+do   
+ ((count++));
+    echo ♪ Playlist $count: $i
 done
 
 
@@ -42,9 +49,10 @@ if [ $count -lt 1 ]
 then
     exit
 else
-    echo "$count playlist links found. 😃"
     echo ""
-    echo "♪ Downloading Playlist. Please wait..."
+    echo "$count playlist found."
+    echo ""
+    echo "💾 Downloading playlist. Please wait..."
     eval $yd
 echo ""
 fi
