@@ -22,7 +22,7 @@ done
 clear
 new=$(echo -n $queryString | head -c -1)
 newer="$new+audio"
-echo "SEARCHING FOR: $song . . ."
+echo "🔍 SEARCHING FOR: $song"
 echo ""
 comp=$p1$p2$p3$newer$p2$link
 eval $comp > song.txt
