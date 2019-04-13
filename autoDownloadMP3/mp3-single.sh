@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 #lynx -dump 'https://www.youtube.com/results?search_query=afroman+because+i+got+high+mp3'|grep watch|grep https|awk '{print $2}'|head -n 1
 dump="lynx -dump 'https://www.youtube.com/results?search_query="
 link="| grep watch | grep https | awk '{print \$2}'| head -n 1"

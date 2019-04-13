@@ -1,4 +1,8 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+#search for playlist only
+#lynx -dump 'https://www.youtube.com/results?search_query=top+rap+playlist'|grep https|grep PL|awk '{print $2}'
+#lynx -dump 'https://www.youtube.com/results?search_query=top+rap+playlist'|grep https|grep PL|awk '{print $2}'
+
 rnb="rnb.txt"
 links=$rnb
 yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file $rnb"
