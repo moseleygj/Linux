@@ -12,25 +12,30 @@ p1="lynx -dump "
 p2=\'
 p3="https://www.youtube.com/results?search_query="
 
-yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file song.txt"
 n=""
 ext=".txt"
 
 clear
 
-echo "Enter the genre, year and/artist playlist:"
+echo "Enter the genre, year and/or artist for desired playlist:"
 read song;
+clear
 echo "Playlist name:"
 #check to see if playlist already exist
 read playListName
+pn="$playListName$ext"
 
-if [ -f playListName ];
+if [ -f $pn ];
 then
-echo "This file already exist."
+echo "The file: \"$pn\" already exist. Exiting..."
+exit
 else
-touch $playlist$ext
-echo "File \"$playListName\" created sucessfully..."
+touch $pn
+echo $pn
+echo "File \"$pn\" created sucessfully..."
 fi
+
+yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file $pn"
 
 for i in $song
 do
@@ -45,7 +50,7 @@ newer="$new+playlist"
 echo "SEARCHING FOR PLAYLIST INCLUDING: $song . . ."
 echo ""
 comp=$p1$p2$p3$newer$p2$link
-eval $comp > $playListName
+eval $comp > $pn
 echo "♪ Downloading..."
 #eval $yd
 echo ""

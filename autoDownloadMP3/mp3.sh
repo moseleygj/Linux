@@ -20,7 +20,11 @@ queryString+="$i+";
 done
 
 clear
-new=$(echo -n $queryString | head -c -1)
+#this version works on macOS
+new=$(echo -n $queryString | sed -e "s/.$//")
+#This version works on Linux
+#new=$(echo -n $queryString | head -c -1)
+
 newer="$new+audio"
 echo "🔍 SEARCHING FOR: $song"
 echo ""

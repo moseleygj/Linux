@@ -6,6 +6,9 @@ div="------------------------------------------------------"
 
 p1="lynx -dump "
 p2=\'
+p2s=\'s
+rmLast='s/.$//'
+
 p3="https://www.youtube.com/results?search_query="
 
 yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file song.txt"
@@ -20,7 +23,11 @@ queryString+="$i+";
 done
 
 clear
-new=$(echo -n $queryString | head -c -1)
+echo $rmLast
+echo $p2
+new=$(echo -n $queryString | sed $p2$rmLast$p2)
+#new=$(echo -n $queryString | head -c -1)
+
 newer="$new+audio"
 echo "SEARCHING FOR: $song . . ."
 echo ""
