@@ -3,17 +3,26 @@
 #lynx -dump 'https://www.youtube.com/results?search_query=top+rap+playlist'|grep https|grep PL|awk '{print $2}'
 #lynx -dump 'https://www.youtube.com/results?search_query=top+rap+playlist'|grep https|grep PL|awk '{print $2}'
 
-rnb="rnb.txt"
-links=$rnb
-yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file $rnb"
+playList="rnb.txt"                  #  <=place playlist here
+links=$playList
+yd="youtube-dl -x -i --extract-audio --audio-format mp3 --quiet --yes-playlist --batch-file $playList"
 n=""
 div="============================================================"
 
-echo $rnb
+echo $playList
 
-#rnb.txt
-#rapANDrnb.txt
-#rap.txt
+#billboardTop100.txt  soca.txt       top100_09.txt  top100_90.txt
+#classical.txt        song.txt       top100_10.txt  top100_91.txt
+#hiphop.txt           top100_00.txt  top100_11.txt  top100_92.txt
+#honeyPot.txt         top100_01.txt  top100_12.txt  top100_93.txt
+#jazz.txt             top100_02.txt  top100_13.txt  top100_94.txt
+#metal.txt            top100_03.txt  top100_14.txt  top100_95.txt
+#rapANDrnb.txt        top100_04.txt  top100_15.txt  top100_96.txt
+#rap.txt              top100_05.txt  top100_16.txt  top100_97.txt
+#reggae.txt           top100_06.txt  top100_17.txt  top100_98.txt
+#rnb.txt              top100_07.txt  top100_18.txt  top100_99.txt
+#rock.txt             top100_08.txt  top100_19.txt
+
 touch $links
 clear
 count=0;
