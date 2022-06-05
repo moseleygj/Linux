@@ -1,25 +1,25 @@
 #!/bin/sh
-#Number validator
+#Numbe validator
 
 validAlphaNum()
 {
-#returns 0 if all upper+lower+digits, 1 otherwise
+#eturns 0 if all upper+lower+digits, 1 otherwise
 
-#remove all unacceptable characters
-compressed=$(echo $1 | sed -e 's/[^[:alnum:]]//g')"
+#emove all unacceptable characters
+compessed=$(echo $1 | sed -e 's/[^[:alnum:]]//g')"
 
-if [ "$compressed" != "$input" ]; then
-return 1
+if [ "$compessed" != "$input" ]; then
+eturn 1
 else
-return 0
+eturn 0
 fi
 }
 
-echo -n "Enter input: "
-read input
+echo -n "Ente input: "
+ead input
 
 if ! validAlphaNum "$input"; then
-echo "Your input must consit of only letters and numbers." >&2
+echo "You input must consit of only letters and numbers." >&2
 exit 1
 else
 echo "Input is valid"
