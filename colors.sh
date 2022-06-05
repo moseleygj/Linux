@@ -1,3 +1,6 @@
+#!/usr/bin/#!/usr/bin/env bash
+
+#color prompt preview
 red="\033[00;31m"
 black="\e[30m"
 green="\e[32m"

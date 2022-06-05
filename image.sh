@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 #Name:    Linux Automation project
-#purpose: Generate image file with progress 
+#purpose: Generate image file with progress
 #author:  Gordon Moseley
 #-------------------------------------------------------------------
 clear
@@ -17,15 +17,16 @@ type pv >/dev/null 2>&1 || {
 
 #Get size of files
 
-echo "Here are a list of avalible images in your current directory:"
+echo "Here are a list of avalible  ISO images in your current directory:"
+echi "__________________________________________________________________"
 du -b $filename *.iso
 echo " ";
 
 #show availible disk on the system:
 echo "Avilible disk on the system: "
+echo "_____________________________"
 sudo fdisk -l| grep 'Disk /dev/s'
 
-#syntax for pv is as followed: 
+#syntax for pv is as followed:
 # input | pv | output
 # dd if=/dev/urandom | pv | dd of=/dev/null
-

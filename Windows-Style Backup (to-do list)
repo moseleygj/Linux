@@ -14,7 +14,7 @@
 RPM-based: rpm -qa | sort >Application.log
 debian:dpkg -l | sort >Application.log
 
->applicationlog.txt>[html tamplet here]
+>applicationlog.txt>[html template here]
 
 "<html>
 <head><title>System Application Log</title></head>
